@@ -3,69 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>שעון</title>
-    <style>
-        .see{
-            font-size:40px;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        ::-webkit-scrollbar {
-            width: 0;
-        }
-
-        html {
-            background-image: url('nature-colorful-landscape-dusk-cloud_1203-5705.jpg');
-            background-size: cover;
-            text-align: center;
-            font-size: 10px;
-        }
-        body{
-            font-size:2rem;
-            display:flex;
-            flex-direction:column;
-            flex:2;
-            min-height:100vh;
-            align-items:center;
-        }
-        .clock{
-            width:30rem;
-            height:30rem;
-            border:20px solid white;
-            border-radius:50%;
-            margin:50px auto;
-            position:relative;
-            padding:2rem;
-            box-shadow:
-                0 0 0px 4px rgba(0,0,0,0.1),
-                inset 0 0 0 3px #EFEFEF,
-                inset 0 0 10px black,
-                0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .clock-face{
-            position:relative;
-            width:100%;
-            height:100%;
-            transform:translateY(-3px);
-        }
-
-        .hand {
-            width: 50%;
-            height: 6px;
-            background: black;
-            position: absolute;
-            top: 50%;
-            transform-origin: 100%;
-            transform: rotate(90deg);
-            transition: all 0.05s;
-            transition-timing-function: cubic-bezier(0.35, 3.1, 0.25, 1);
-        }
-        .hour-hand{
-            height:2px;
-        }
-        .second-hand{
-            background:red;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet" />
 </head>
 <body>
     <h1 class="see"></h1>
@@ -76,36 +14,6 @@
             <div class="hand second-hand"></div>
         </div>
     </div>
-
-
-    <script>
-
-        const secondHand = document.querySelector('.second-hand');
-        const minHand = document.querySelector('.min-hand');
-        const hourHand = document.querySelector('.hour-hand');
-        const seeHour = document.querySelector('.see');
-
-
-        function setDate() {
-            
-            const now = new Date();
-
-            const seconds = now.getSeconds();
-            const secondsDegrees = ((seconds / 60) * 360) + 90;
-            secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-            const mins = now.getMinutes();
-            const minsDegrees = ((mins / 60) * 360) + 90;
-            minHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-            const hours = now.getHours();
-            const hoursDegrees = ((hours / 12) * 360) + 90;
-            hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-            
-            seeHour.textContent = `${hours}:${mins}:${seconds}`;
-        }
-
-        setInterval(setDate, 1000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
